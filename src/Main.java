@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Main {
+public class Main  {
     WebDriver driver;
 
 
