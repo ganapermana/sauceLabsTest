@@ -1,12 +1,9 @@
-import dev.failsafe.internal.util.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Main  {
+public class Main {
     WebDriver driver;
 
 
@@ -20,7 +17,7 @@ public class Main  {
         Main obj = new Main();
         obj.launchBrowser();
 
-        Login loginPage = new Login(obj.driver);
+        LoginPage loginPage = new LoginPage(obj.driver);
         Transactions transactionsPage = new Transactions(obj.driver);
 
 

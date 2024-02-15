@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class Transactions {
 
     private WebDriver driver;
-    Login loginUser = new Login(driver); //to call wait function
+    LoginPage loginPageUser = new LoginPage(driver); //to call wait function
     public Transactions (WebDriver driver) {
         this.driver = driver;
     }
@@ -83,69 +83,69 @@ public class Transactions {
     }
 
     public void completeTransaction(){
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         selectBackPackProduct();
         assertEquals("1", getShoppingCartBadgeText());
         clickCartIcon();
         clickCheckoutButton();
         inputYourInformation("Buzz", "Lightyear", "14045");
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         clickContinueButton();
         Assert.assertThat(getBackpackProductNameOnPreview(), containsString("Backpack"));
         clickButtonFinishCheckout();
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         assertEquals(true, isBannerCompleteOrderDisplayed());
     }
 
     public void completeTransactionWithMultipleProducts(){
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         selectBackPackProduct();
         selectTshirtProduct();
         assertEquals("2", getShoppingCartBadgeText());
         clickCartIcon();
         clickCheckoutButton();
         inputYourInformation("Buzz", "Lightyear", "14045");
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         clickContinueButton();
         Assert.assertThat(getBackpackProductNameOnPreview(), containsString("Backpack"));
         Assert.assertThat(getTshirtProductNameOnPreview(), containsString("T-Shirt"));
         clickButtonFinishCheckout();
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         assertEquals(true, isBannerCompleteOrderDisplayed());
     }
 
     public void transactionWithNullFirstNameOnInputInformation(){
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         selectBackPackProduct();
         assertEquals("1", getShoppingCartBadgeText());
         clickCartIcon();
         clickCheckoutButton();
         inputYourInformation("", "Lightyear", "14045");
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         clickContinueButton();
         assertEquals(true, isErrorMessageDisplayed());
     }
 
     public void transactionWithNullLaststNameOnInputInformation(){
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         selectBackPackProduct();
         assertEquals("1", getShoppingCartBadgeText());
         clickCartIcon();
         clickCheckoutButton();
         inputYourInformation("Buzz", "", "14045");
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         clickContinueButton();
         assertEquals(true, isErrorMessageDisplayed());
     }
 
     public void transactionWithNullPostalCodeeOnInputInformation(){
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         selectBackPackProduct();
         assertEquals("1", getShoppingCartBadgeText());
         clickCartIcon();
         clickCheckoutButton();
         inputYourInformation("Buzz", "Lightyear", "");
-        loginUser.waitSomeSeconds(1);
+        loginPageUser.waitSomeSeconds(1);
         clickContinueButton();
         assertEquals(true, isErrorMessageDisplayed());
     }

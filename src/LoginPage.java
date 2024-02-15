@@ -4,11 +4,11 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Login {
+public class LoginPage {
     private WebDriver driver;
 
     // Constructor to initialize driver
-    public Login(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
     public void waitSomeSeconds(Integer seconds) {
